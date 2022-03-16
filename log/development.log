@@ -719,3 +719,83 @@ Processing by ArticlesController#show as HTML
 Completed 200 OK in 9167ms (Views: 231.0ms | ActiveRecord: 3.2ms | Allocations: 80148)
 
 
+Started GET "/" for ::1 at 2022-03-16 03:26:01 -0700
+  [1m[35m (5.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.4ms | Allocations: 736)
+Completed 200 OK in 55ms (Views: 23.9ms | ActiveRecord: 0.0ms | Allocations: 6449)
+
+
+Started GET "/articles/1" for ::1 at 2022-03-16 03:26:16 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 210)
+  Rendered layout layouts/application.html.erb (Duration: 164.2ms | Allocations: 36780)
+Completed 200 OK in 206ms (Views: 171.0ms | ActiveRecord: 1.8ms | Allocations: 46226)
+
+
+Started GET "/articles" for ::1 at 2022-03-16 03:26:19 -0700
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:6
+  Rendered articles/index.html.erb within layouts/application (Duration: 107.5ms | Allocations: 13426)
+  Rendered layout layouts/application.html.erb (Duration: 108.7ms | Allocations: 13519)
+Completed 500 Internal Server Error in 113ms (ActiveRecord: 0.3ms | Allocations: 13966)
+
+
+  
+ActionView::Template::Error (Missing partial articles/_article with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "C:/Users/MohamedBouichou/Projects/alpha-blog/app/views"
+  * "C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views"
+  * "C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/actionmailbox-7.0.2.3/app/views"
+
+Did you mean?  action_text/attachment_galleries/attachment_gallery
+               action_text/attachables/remote_image
+               layouts/action_text/contents/content
+               action_text/contents/content
+               action_text/attachables/missing_attachable
+               active_storage/blobs/blob):
+    4: 
+    5: <div id="articles">
+    6:   <% @articles.each do |article| %>
+    7:     <%= render article %>
+    8:     <p>
+    9:       <%= link_to "Show this article", article %>
+   10:     </p>
+  
+app/views/articles/index.html.erb:7
+app/views/articles/index.html.erb:6
+Started GET "/articles/1" for ::1 at 2022-03-16 03:26:24 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 24)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 2525)
+Completed 200 OK in 38ms (Views: 26.0ms | ActiveRecord: 0.5ms | Allocations: 3463)
+
+
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220316103556)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220316103556"]]
+  [1m[36mTRANSACTION (11.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
